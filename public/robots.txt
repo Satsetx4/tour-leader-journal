@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tour-leader-journal.vercel.app/sitemap.xml

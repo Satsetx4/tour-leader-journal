@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #12100e;
+    color: #2b2520;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1e1a16;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #544432;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #786248;
+  }
+}
+
+/* Custom Font Utilities */
+.font-journal {
+  font-family: 'Cinzel', serif;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+.font-typewriter {
+  font-family: 'Courier Prime', monospace;
+}
+
+/* Wood Tabletop Background Pattern */
+.bg-wood-desk {
+  background-color: #1a1512;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(45, 34, 24, 0.6) 0%, rgba(15, 12, 10, 0.95) 100%),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.08) 0px, rgba(0, 0, 0, 0.08) 2px, transparent 2px, transparent 8px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 40px);
+}
+
+/* Parchment / Aged Paper Texture */
+.bg-parchment {
+  background-color: #fbf7ee;
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.7) 0%, rgba(240, 230, 210, 0.6) 100%),
+    repeating-linear-gradient(45deg, rgba(160, 130, 90, 0.03) 0px, rgba(160, 130, 90, 0.03) 2px, transparent 2px, transparent 6px);
+}
+
+.bg-parchment-dark {
+  background-color: #f3edd9;
+  background-image: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.4) 0%, rgba(225, 210, 185, 0.8) 100%);
+}
+
+/* Vintage Leather Texture */
+.bg-leather {
+  background-color: #3b2214;
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(85, 45, 25, 0.8) 0%, rgba(35, 18, 10, 0.95) 100%),
+    repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 4px);
+}
+
+/* 3D Transform Utilities for Pop-Up Book */
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Book Spine Shadow */
+.book-spine-shadow {
+  box-shadow: inset 24px 0 30px -15px rgba(0, 0, 0, 0.25), inset -24px 0 30px -15px rgba(0, 0, 0, 0.25);
+}
+
+.page-left-shadow {
+  box-shadow: inset -25px 0 25px -15px rgba(70, 50, 30, 0.2);
+}
+
+.page-right-shadow {
+  box-shadow: inset 25px 0 25px -15px rgba(70, 50, 30, 0.2);
+}
+
+/* Realistic Stamp Inking Effect */
+.stamp-border {
+  border: 3px dashed #b91c1c;
+  mask-image: radial-gradient(circle at 50% 50%, black 90%, transparent 100%);
+}
