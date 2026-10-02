@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HeartPulse, Languages, Shield, Compass, X, CheckCircle, Radio } from 'lucide-react';
+import { HeartPulse, Compass, X, CheckCircle, Bus, Hotel, Users, Mic } from 'lucide-react';
 import { sounds } from '../../lib/sounds';
 
 interface GearSkill {
@@ -17,52 +17,64 @@ interface GearSkill {
 
 const gearSkills: GearSkill[] = [
   {
-    id: 'medical',
-    name: 'Wilderness Medicine & Trauma Protocol',
-    category: 'Safety & Emergency Response',
-    icon: <HeartPulse className="w-5 h-5 text-rose-600" />,
-    level: 'Certified Responder',
-    badgeColor: 'bg-rose-100 text-rose-800 border-rose-200',
-    imgUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=80',
-    summary: 'Keahlian penanganan darurat di alam bebas, hipotermia, trauma fisik, dan mabuk ketinggian (AMS).',
-    anecdote: 'Saat mendaki basecamp Annapurna di ketinggian 4.130m, seorang peserta mengalami gejala AMS akut. Protokol oksigen darurat & koordinasi evakuasi medis dilakukan dalam waktu kurang dari 20 menit.',
-    checklist: ['Garmin InReach Satellite SOS', 'Wilderness First Aid (WFA) Active', 'Portable O2 Saturation Monitoring', 'Triage Protocol in Remote Area']
-  },
-  {
-    id: 'languages',
-    name: 'Multilingual Bridge & Local Access',
-    category: 'Cross-Cultural Logistics',
-    icon: <Languages className="w-5 h-5 text-blue-600" />,
-    level: 'C1 Professional',
-    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
-    imgUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&auto=format&fit=crop&q=80',
-    summary: 'Komunikasi lancar lintas budaya untuk mencairkan birokrasi imigrasi dan menghormati adat lokal.',
-    anecdote: 'Mampu bernegosiasi langsung dengan kepala desa adat di Wamena dan pemandu lokal di Kyoto tanpa perantara, memastikan akses ke spot sakral yang jarang dibuka untuk umum.',
-    checklist: ['Bahasa Indonesia (Native)', 'English (C1 Professional)', 'Japanese (Daily Conversational)', 'Mandarin (Basic Logistics)']
-  },
-  {
-    id: 'tech',
-    name: 'Satellite Telemetry & Drone Recon',
-    category: 'Modern Expedition Tech',
-    icon: <Radio className="w-5 h-5 text-orange-600" />,
-    level: 'Advanced Field Tech',
+    id: 'group',
+    name: 'Group Coordination & Fleet Control',
+    category: 'Manajemen Rombongan Massal',
+    icon: <Users className="w-5 h-5 text-orange-600" />,
+    level: '100+ Pax Multi-Bus',
     badgeColor: 'bg-orange-100 text-orange-800 border-orange-200',
-    imgUrl: 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=500&auto=format&fit=crop&q=80',
-    summary: 'Pemantauan rute real-time menggunakan citra satelit cuaca, drone pemantau longsor, dan radio VHF lapangan.',
-    anecdote: 'Menggunakan drone rekognisi untuk memeriksa jalur es sebelum rombongan bus melintas di fjord Norwegia, mendeteksi lapisan es hitam (black ice) berbahaya sebelum kendaraan terjebak.',
-    checklist: ['DJI Reconnaissance Drone', 'Offline 3D Topographic Maps', 'Dual-Band VHF Radio Walkie', 'Portable Solar Power Station']
+    imgUrl: '/images/trip-1.webp',
+    summary: 'Pengendalian rombongan sekolah dan korporat skala besar, pengelompokan peserta, dan koordinasi antar kru bus.',
+    anecdote: 'Membimbing rombongan 4 bus SMK Negeri 1 Probolinggo untuk kunjungan industri ke Malang; memastikan 100% siswa tertib, absen presisi di setiap titik transit, dan zero peserta tertinggal.',
+    checklist: ['Sistem Presensi Barcode/Checklist', 'Koordinasi Walkie-Talkie Antar Kru', 'Pemberian Identitas Badge Peserta', 'Protokol Titik Kumpul Aman']
   },
   {
-    id: 'logistics',
-    name: 'Airport VIP Clearance & Transit Agility',
-    category: 'Aviation & Border Operations',
-    icon: <Shield className="w-5 h-5 text-emerald-600" />,
-    level: 'Zero-Delay Guarantee',
+    id: 'hotel',
+    name: 'Hotel & Rooming List Coordination',
+    category: 'Akomodasi & Hospitality',
+    icon: <Hotel className="w-5 h-5 text-blue-600" />,
+    level: 'Fast Check-In Expert',
+    badgeColor: 'bg-blue-100 text-blue-800 border-blue-200',
+    imgUrl: '/images/neni-2.webp',
+    summary: 'Penyusunan rooming list, distribusi kunci kamar kilat rombongan besar, dan koordinasi jam sarapan/dinner hotel.',
+    anecdote: 'Sebelum bus tiba di hotel transit Malang pada malam hari, seluruh kunci kamar dan pembagian kartu lift telah siap di amplop per-kamar; peserta bisa langsung istirahat dalam waktu kurang dari 10 menit.',
+    checklist: ['Pre-Checkin & Room Key Packaging', 'Manajemen Permintaan Kamar Guru/VIP', 'Koordinasi Buffet Breakfast Terjadwal', 'Inspeksi Fasilitas & Keamanan Kamar']
+  },
+  {
+    id: 'vendor',
+    name: 'Vendor & Armada Bus Coordination',
+    category: 'Logistik & Transportasi',
+    icon: <Bus className="w-5 h-5 text-emerald-600" />,
+    level: 'Top Fleet Synergy',
     badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-    imgUrl: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=500&auto=format&fit=crop&q=80',
-    summary: 'Penguasaan alur imigrasi rombongan besar, klaim bagasi cepat, dan re-booking instan saat penerbangan terdampak.',
-    anecdote: 'Membimbing 65 peserta BUMN melewati 3 kali transit penerbangan di Timur Tengah dalam kondisi badai pasir tanpa ada satu pun koper yang tertinggal atau tercecer.',
-    checklist: ['Group Manifest Preparation', 'Priority Airline Re-Booking', 'Lost Luggage Escalation System', 'Duty-Free Border Regulations']
+    imgUrl: '/images/neni-5.webp',
+    summary: 'Sinergi langsung dengan PO Bus Pariwisata eksekutif (Jetbus 5, Pandawa 87), sopir profesional, rumah makan, dan tiket destinasi.',
+    anecdote: 'Menjaga komunikasi aktif dengan kapten sopir bus untuk memilih rute alternatif saat jam padat tol Jawa Timur, memastikan rombongan tiba di destinasi tepat sesuai jadwal rundown industri.',
+    checklist: ['Briefing Driver & Kru Bus Sebelum Berangkat', 'Reservasi Rumah Makan Transit Siap Saji', 'Ticketing Terpadu Tanpa Antre Loket', 'Pemeriksaan Fasilitas AC & Audio Bus']
+  },
+  {
+    id: 'emergency',
+    name: 'Emergency Handling & Handling Complain',
+    category: 'Mitigasi & Resolusi Lapangan',
+    icon: <HeartPulse className="w-5 h-5 text-rose-600" />,
+    level: 'Responsive & Solutive',
+    badgeColor: 'bg-rose-100 text-rose-800 border-rose-200',
+    imgUrl: '/images/neni-6.webp',
+    summary: 'Penanganan keluhan secara tenang dan santun, tanggap pertolongan pertama (P3K) mabuk perjalanan, asma, atau cedera ringan.',
+    anecdote: 'Saat seorang siswi mengalami mual hebat dan demam saat melintasi jalur pegunungan Batu, tim medis bus langsung memberikan obat lambung, minyak aromaterapi, dan tempat istirahat khusus hingga kondisi pulih stabil.',
+    checklist: ['Kotak P3K Lengkap & Obat Darurat', 'Pendekatan Komunikasi Empatik & Tenang', 'Kontak Darurat Rumah Sakit Terdekat', 'Resolusi Kendala Kamar / Konsumsi Kilat']
+  },
+  {
+    id: 'publicspeaking',
+    name: 'Public Speaking, Ice Breaking & Documentation',
+    category: 'Pemandu & Dokumentasi',
+    icon: <Mic className="w-5 h-5 text-purple-600" />,
+    level: 'Engaging & Cheerful',
+    badgeColor: 'bg-purple-100 text-purple-800 border-purple-200',
+    imgUrl: '/images/trip-2.webp',
+    summary: 'Menghidupkan suasana bus selama berjam-jam dengan kuis seru, edukasi rute, serta dokumentasi foto/video estetik.',
+    anecdote: 'Mengubah perjalanan panjang antarkota menjadi sesi trivia interaktif berhadiah yang disambut antusias oleh seluruh siswa, sekaligus mengambil foto-foto candid rombongan yang siap dibagikan ke media sosial sekolah.',
+    checklist: ['Ice Breaking Tanpa Canggung di Mic Bus', 'Penjelasan Edukatif Sejarah Objek Wisata', 'Dokumentasi Foto & Video Resolusi Tinggi', 'Pemberian Kenang-kenangan & Yel-Yel Seru']
   }
 ];
 
@@ -81,34 +93,34 @@ export const SurvivalKitPage: React.FC = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 h-full relative">
-      {/* LEFT SPREAD: Modern Tech & Specialist Equipment */}
+      {/* LEFT SPREAD: Neni's Core Professional Skills */}
       <div className="relative bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-card-elevated flex flex-col justify-between overflow-hidden">
         <div>
           {/* Header */}
           <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
             <div>
               <span className="text-[10px] font-mono tracking-widest uppercase text-orange-600 font-bold">
-                PAGE 3 • EXPEDITION TOOLKIT & SKILLS
+                PAGE 3 • KOMPETENSI TOUR LEADER
               </span>
               <h3 className="text-xl font-bold font-display tracking-tight text-slate-900">
-                The Specialist Tech-Kit
+                Keahlian & Layanan Profesional
               </h3>
             </div>
             <Compass className="w-5 h-5 text-orange-600" />
           </div>
 
-          <p className="text-xs font-sans text-slate-600 mb-4">
-            Kombinasi lisensi resmi, protokol medis darurat, dan teknologi navigasi satelit modern. Klik salah satu modul
-            untuk membaca logbook lapangan:
+          <p className="text-xs font-sans text-slate-600 mb-3">
+            Kompetensi resmi Neni Suryani yang teruji mengawal rombongan study tour, kunjungan industri, dan liburan
+            keluarga. Klik untuk melihat detail penerapan lapangan:
           </p>
 
           {/* Clickable Modern Gear Cards */}
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             {gearSkills.map((gear) => (
               <div
                 key={gear.id}
                 onClick={() => openGear(gear)}
-                className="group p-3 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-orange-500 hover:bg-orange-50/30 transition-all cursor-pointer shadow-xs flex items-center justify-between"
+                className="group p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-orange-500 hover:bg-orange-50/30 transition-all cursor-pointer shadow-xs flex items-center justify-between"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-white border border-slate-200 shadow-xs group-hover:scale-105 transition-transform">
@@ -133,9 +145,9 @@ export const SurvivalKitPage: React.FC = () => {
         </div>
 
         {/* Bottom Tag */}
-        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
-          <span>🎒 Operational Readiness: 365 Days</span>
-          <span className="text-emerald-600 font-bold">● WFTGA Compliant</span>
+        <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
+          <span>💼 Afiliasi: Kharisma Tour & Travel</span>
+          <span className="text-emerald-600 font-bold">● Siap Bertugas Domestik</span>
         </div>
       </div>
 
@@ -146,10 +158,10 @@ export const SurvivalKitPage: React.FC = () => {
           <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
             <div>
               <span className="text-[10px] font-mono tracking-widest uppercase text-orange-600 font-bold">
-                FIELD MISSION LOGS & ANECDOTE
+                BUKTI PENERAPAN LAPANGAN
               </span>
               <h3 className="text-xl font-bold font-display tracking-tight text-slate-900">
-                {selectedGear ? selectedGear.name : 'Inspeksi Perlengkapan'}
+                {selectedGear ? selectedGear.name : 'Inspeksi Keahlian'}
               </h3>
             </div>
             {selectedGear && (
@@ -165,30 +177,30 @@ export const SurvivalKitPage: React.FC = () => {
 
           {selectedGear ? (
             <div className="space-y-3 font-sans text-xs">
-              {/* Cropped Photo Card of the Gear/Scenario */}
+              {/* Cropped Photo Card of Neni in Action */}
               <div className="w-full h-32 rounded-xl overflow-hidden border border-slate-200 shadow-sm relative">
                 <img
                   src={selectedGear.imgUrl}
                   alt={selectedGear.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-2.5">
                   <span className="text-white text-[11px] font-mono font-bold">
-                    FIELD VERIFICATION: {selectedGear.category.toUpperCase()}
+                    DOKUMENTASI ASLI: {selectedGear.category.toUpperCase()}
                   </span>
                 </div>
               </div>
 
               <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
                 <span className="text-[10px] text-slate-500 font-mono font-bold block mb-1 uppercase">
-                  DESKRIPSI PROTOKOL
+                  DESKRIPSI TANGGUNG JAWAB
                 </span>
                 <p className="text-slate-800 leading-relaxed">{selectedGear.summary}</p>
               </div>
 
               <div className="bg-orange-50/80 p-3 rounded-xl border border-orange-200">
                 <span className="text-[10px] text-orange-800 font-mono font-bold block mb-1 uppercase">
-                  📌 CATATAN NYATA DARI LAPANGAN:
+                  📌 PENGALAMAN NYATA DI LAPANGAN:
                 </span>
                 <p className="text-xs text-orange-950 leading-relaxed font-medium">
                   "{selectedGear.anecdote}"
@@ -197,7 +209,7 @@ export const SurvivalKitPage: React.FC = () => {
 
               <div>
                 <span className="text-[10px] text-slate-500 font-mono font-bold block mb-1.5 uppercase">
-                  STANDAR CHECKLIST KESIAPAN:
+                  STANDAR CHECKLIST KINERJA:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                   {selectedGear.checklist.map((item, i) => (
@@ -218,19 +230,20 @@ export const SurvivalKitPage: React.FC = () => {
                 🧭
               </div>
               <h4 className="font-display font-bold text-base text-slate-900 mb-1">
-                Pilih Modul di Halaman Kiri
+                Pilih Keahlian di Halaman Kiri
               </h4>
               <p className="text-xs font-sans text-slate-500 max-w-xs">
-                Sentuh salah satu keahlian medis, satelit, atau operasional bandara untuk membuka logbook misi nyata.
+                Sentuh salah satu kompetensi untuk melihat bagaimana Neni Suryani mengelola rombongan, hotel, bus, dan
+                situasi darurat di lapangan.
               </p>
             </div>
           )}
         </div>
 
         {/* Footer */}
-        <div className="mt-4 pt-3 border-t border-slate-100 text-center">
+        <div className="mt-3 pt-2.5 border-t border-slate-100 text-center">
           <p className="text-xs font-sans text-slate-500 italic">
-            “Kesiapan logistik yang sempurna adalah kunci kebebasan menikmati petualangan tanpa cemas.”
+            “Kenyamanan peserta dan kepercayaan pihak sekolah/travel adalah kehormatan bagi saya.”
           </p>
         </div>
       </div>

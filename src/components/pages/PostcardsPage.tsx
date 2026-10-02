@@ -18,56 +18,56 @@ interface ReviewStory {
 
 const reviews: ReviewStory[] = [
   {
-    id: 'nz-family',
-    sender: 'Keluarga Besar Hartono',
-    role: 'Private Family Trip (14 Pax)',
-    trip: 'New Zealand Autumn Scenic Roadtrip',
-    date: 'April 2025',
-    origin: 'Queenstown, New Zealand',
-    guestImg: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&auto=format&fit=crop&q=80',
+    id: 'smk1-probolinggo',
+    sender: 'SMK Negeri 1 Probolinggo',
+    role: 'Panitia Kunjungan Industri (120+ Siswa)',
+    trip: 'Kunjungan Industri Sekawan Media & OJK Malang',
+    date: 'September 2026',
+    origin: 'Probolinggo - Malang',
+    guestImg: '/images/trip-1.webp',
     message:
-      'Mas Ardian luar biasa sabar! Bawa 14 orang dari kakek 74 tahun sampai anak 5 tahun bukan hal mudah, tapi ritme jalannya sangat santai tanpa ada yang merasa kelelahan. Rekomendasi kuliner lokalnya jempolan!',
+      'Mbak Neni luar biasa sigap dan telaten mengawal 4 bus siswa kami! Pengaturan waktu kunjungan industri ke OJK dan Sekawan Media sangat tepat waktu. Anak-anak sangat senang karena Mbak Neni ramah dan interaktif saat memandu di bus.',
     rating: 5,
-    highlight: 'Multi-Generasi & Ramah Kursi Roda'
+    highlight: 'Kunjungan Industri Sukses & 100% On-Time'
   },
   {
-    id: 'corporate-bajo',
-    sender: 'Divisi Digital BUMN',
-    role: 'Corporate Retreat (48 Pax)',
-    trip: 'Labuan Bajo 3-Phinisi Liveaboard',
-    date: 'Oktober 2024',
-    origin: 'Labuan Bajo, Flores',
-    guestImg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop&q=80',
+    id: 'smk2-probolinggo',
+    sender: 'SMK Negeri 2 Probolinggo',
+    role: 'Koordinator Pengembangan SDM',
+    trip: 'Program Pengembangan SDM Malang - Batu',
+    date: 'Agustus 2026',
+    origin: 'Malang & Kota Batu',
+    guestImg: '/images/trip-7.webp',
     message:
-      'Event gathering perusahaan paling berkesan. Manajemen waktunya sangat presisi tanpa terkesan kaku, koordinasi 3 kapal phinisi berjalan mulus, dan sesi ice-breaking malam harinya bikin seluruh tim makin kompak.',
+      'Kerjasama yang sangat profesional. Pembagian kamar hotel cepat sekali tanpa rombongan harus antre lama di lobi malam-malam. Komunikasi dengan pihak bus dan resto transit sangat rapi dan tertata.',
     rating: 5,
-    highlight: 'High Discipline & Corporate Harmony'
+    highlight: 'Koordinasi Hotel & Armada Bus Sangat Rapi'
   },
   {
-    id: 'arctic-aurora',
-    sender: 'Andini & Sahabat',
-    role: 'Small Group Expedition (6 Pax)',
-    trip: 'Chasing Arctic Aurora Tromsø',
-    date: 'Februari 2025',
-    origin: 'Tromsø, Norwegia',
-    guestImg: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80',
+    id: 'kharisma-agency',
+    sender: 'Kharisma Tour and Travel',
+    role: 'Operational Travel Management',
+    trip: 'Partner Tour Leader Reguler & Charter',
+    date: 'Aktif 2025 - 2026',
+    origin: 'Jawa Timur & Bali',
+    guestImg: '/images/neni-4.webp',
     message:
-      'Waktu badai salju datang dan jalan ditutup, kami kira impian liat aurora bakal pupus. Naluri cuaca Mas Ardian yang tajam dan relasi lokalnya berhasil bawa kita ke spot tersembunyi hingga dapat aurora spektakuler!',
+      'Neni Suryani adalah Tour Leader yang sangat berdedikasi. Punya kemampuan public speaking yang ceria, tanggap menyelesaikan kendala mendadak di lapangan, dan selalu menjaga nama baik biro perjalanan kami.',
     rating: 5,
-    highlight: 'Weather Resilience & Arctic Survival'
+    highlight: 'Tour Leader Andalan Biro Perjalanan'
   },
   {
-    id: 'japan-cherry',
-    sender: 'dr. Haryo & Istri',
-    role: 'VIP Honeymoon Couple',
-    trip: 'Exclusive Private Luxury Japan',
-    date: 'April 2024',
-    origin: 'Kyoto, Japan',
-    guestImg: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&auto=format&fit=crop&q=80',
+    id: 'family-bali',
+    sender: 'Ibu Ratna Dewi & Keluarga',
+    role: 'Klien Private Tour Keluarga (12 Pax)',
+    trip: 'Private Holiday Bali & Danau Bedugul',
+    date: 'Juli 2026',
+    origin: 'Denpasar - Bedugul, Bali',
+    guestImg: '/images/neni-6.webp',
     message:
-      'Privasi kami sangat terlindungi. Akses ke restoran kaiseki tersembunyi dan sudut-sudut foto candid yang diambil Mas Ard hasilnya sekelas jepretan fotografer majalah profesional. Pengalaman bintang lima!',
+      'Liburan keluarga ke Bali jadi sangat tenang dan berkesan. Anak-anak dan orang tua kami sangat nyaman karena Mbak Neni selalu memastikan jadwal makan dan istirahat pas. Foto-foto dokumentasi yang diambilkan juga bagus-bagus!',
     rating: 5,
-    highlight: 'Private Luxury & Concierge Care'
+    highlight: 'Private Client Friendly & Dokumentasi Bagus'
   }
 ];
 
@@ -93,17 +93,18 @@ export const PostcardsPage: React.FC = () => {
           <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
             <div>
               <span className="text-[10px] font-mono tracking-widest uppercase text-orange-600 font-bold">
-                PAGE 4 • TRAVELERS' VOICES
+                PAGE 4 • APRESIASI & TESTIMONI KLIEN
               </span>
               <h3 className="text-xl font-bold font-display tracking-tight text-slate-900">
-                Ulasan & Cerita Peserta Trip
+                Ulasan Sekolah, Agency & Klien
               </h3>
             </div>
             <MessageSquareQuote className="w-5 h-5 text-orange-600" />
           </div>
 
           <p className="text-xs font-sans text-slate-600 mb-4">
-            Testimoni jujur dan dokumentasi dari para peserta trip yang telah menjelajahi dunia bersama Ardian Pratama:
+            Testimoni nyata dari sekolah, pimpinan instansi, biro perjalanan wisata, dan keluarga yang pernah dipandu oleh
+            Neni Suryani:
           </p>
 
           {/* Grid of Modern Review Cards */}
@@ -121,7 +122,7 @@ export const PostcardsPage: React.FC = () => {
                     <img
                       src={card.guestImg}
                       alt={card.sender}
-                      className="w-7 h-7 rounded-full object-cover border border-slate-300"
+                      className="w-8 h-8 rounded-full object-cover border border-slate-300"
                     />
                     <div className="flex">
                       {[...Array(card.rating)].map((_, i) => (
@@ -145,8 +146,8 @@ export const PostcardsPage: React.FC = () => {
 
         {/* Metric Bar */}
         <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
-          <span>🌟 Verified Traveler Satisfaction: 100% 5-Star</span>
-          <span className="text-orange-600 font-bold">160+ Testimonials</span>
+          <span>🌟 Tingkat Kepuasan Klien: 100% Bintang 5</span>
+          <span className="text-orange-600 font-bold">Terverifikasi di Lapangan</span>
         </div>
       </div>
 
@@ -160,7 +161,7 @@ export const PostcardsPage: React.FC = () => {
                 EXPERIENCE DOSSIER INSPECTOR
               </span>
               <h3 className="text-xl font-bold font-display tracking-tight text-slate-900">
-                {activeReview ? `Kisah dari ${activeReview.sender}` : 'Pratinjau Ulasan'}
+                {activeReview ? `Ulasan dari ${activeReview.sender}` : 'Pratinjau Testimoni'}
               </h3>
             </div>
             {activeReview && (
@@ -180,19 +181,19 @@ export const PostcardsPage: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="bg-slate-50 border border-slate-200 rounded-xl p-4 shadow-sm relative space-y-3"
             >
-              {/* Header with guest photo and location */}
+              {/* Header with photo and trip info */}
               <div className="flex items-center gap-3">
                 <img
                   src={activeReview.guestImg}
                   alt={activeReview.sender}
-                  className="w-12 h-12 rounded-xl object-cover border-2 border-orange-500 shadow-sm"
+                  className="w-14 h-14 rounded-xl object-cover border-2 border-orange-500 shadow-sm"
                 />
                 <div>
                   <h4 className="font-display font-bold text-sm text-slate-900">{activeReview.sender}</h4>
                   <p className="text-[10px] font-mono text-slate-500">
                     {activeReview.role} • {activeReview.date}
                   </p>
-                  <span className="text-[10px] font-mono text-orange-600">📍 {activeReview.origin}</span>
+                  <span className="text-[10px] font-mono text-orange-600">📍 Rute: {activeReview.origin}</span>
                 </div>
               </div>
 
@@ -217,11 +218,11 @@ export const PostcardsPage: React.FC = () => {
                 💬
               </div>
               <h4 className="font-display font-bold text-base text-slate-900 mb-1">
-                Pilih Cerita Tamu di Sebelah Kiri
+                Pilih Ulasan Klien di Sebelah Kiri
               </h4>
               <p className="text-xs font-sans text-slate-500 max-w-xs">
-                Sentuh salah satu kartu ulasan untuk membaca feedback lengkap tentang kenyamanan dan standar keamanan di
-                lapangan.
+                Sentuh salah satu kartu untuk membaca feedback pengalaman sekolah, travel agency, dan rombongan wisata
+                yang telah dipandu.
               </p>
             </div>
           )}
@@ -230,7 +231,7 @@ export const PostcardsPage: React.FC = () => {
         {/* Footer */}
         <div className="mt-4 pt-3 border-t border-slate-100 text-center">
           <p className="text-xs font-sans text-slate-500 italic">
-            “Kebahagiaan wisatawan adalah tolak ukur keberhasilan sebuah ekspedisi.”
+            “Kepuasan dan senyum bahagia rombongan adalah motivasi terbesar dalam setiap perjalanan.”
           </p>
         </div>
       </div>

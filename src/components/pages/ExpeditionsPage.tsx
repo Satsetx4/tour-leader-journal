@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Compass, AlertTriangle, CheckCircle2, ChevronRight, Bus, Ship, Train } from 'lucide-react';
+import { Compass, AlertTriangle, CheckCircle2, ChevronRight, Bus, Landmark, Palmtree } from 'lucide-react';
 import { sounds } from '../../lib/sounds';
 
 interface ExpeditionItem {
@@ -15,7 +15,6 @@ interface ExpeditionItem {
   bgGradient: string;
   landscapeImg: string;
   vehicleImg: string;
-  foregroundImg?: string;
   crisisStory: string;
   solution: string;
   itinerary: string[];
@@ -23,57 +22,72 @@ interface ExpeditionItem {
 
 const expeditions: ExpeditionItem[] = [
   {
-    id: 'arctic',
-    name: 'Arctic Aurora & Fjord Expedition',
-    location: 'Tromsø & Lofoten, Norwegia',
-    tagline: 'Mengejar Aurora Borealis & Petualangan Fjord Kutub Utara',
-    season: 'Nov - Feb (Winter Peak)',
-    groupSize: '16 Pax Exclusive VIP',
-    transportBadge: 'MERCEDES 4X4 SPRINTER COACH',
+    id: 'malang',
+    name: 'Kunjungan Industri & Edukasi Malang - Batu',
+    location: 'Malang & Kota Batu, Jawa Timur',
+    tagline: 'Study Tour Edukatif, Kunjungan Industri Teknologi & Rekreasi Pegunungan',
+    season: 'Sepanjang Tahun (Fleksibel)',
+    groupSize: '80 - 150+ Siswa/Mahasiswa (Multi-Bus)',
+    transportBadge: 'MERCEDES JETBUS 5 PANDAWA 87',
     transportIcon: <Bus className="w-3.5 h-3.5" />,
-    bgGradient: 'from-slate-950 via-[#064e3b] to-slate-900',
-    landscapeImg: 'https://images.unsplash.com/photo-1517411032315-54ef2cb783bb?w=800&auto=format&fit=crop&q=80',
-    vehicleImg: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=500&auto=format&fit=crop&q=80',
-    crisisStory: 'Badai salju esktrem -18°C menutup rute jalan E10; feri utama dibatalkan mendadak.',
-    solution: 'Berhasil mengamankan kapal carter pemecah es lokal dalam 45 menit, seluruh rombongan tiba di lodge hangat tanpa panik.',
-    itinerary: ['D1: Tromsø Cable Car & Ice Domes', 'D2: Chasing Aurora with Sami Reindeer Sled', 'D3: Fjord Speedboat Wildlife Safari', 'D4: Lofoten Traditional Rorbu Villa']
+    bgGradient: 'from-slate-950 via-[#1e293b] to-emerald-950',
+    landscapeImg: '/images/trip-5.webp',
+    vehicleImg: '/images/neni-4.webp',
+    crisisStory: 'Pergeseran jadwal presentasi mendadak dari pihak industri mitra akibat rapat pimpinan internal.',
+    solution: 'Langsung memajukan sesi kunjungan UMKM edukatif (Madu Kembang Joyo) tanpa membuang waktu, seluruh agenda industri dan rekreasi Jatim Park tetap selesai 100% tuntas.',
+    itinerary: [
+      'H1: Keberangkatan & Check-in Hotel Bintang di Malang',
+      'H2: Kunjungan Industri Resmi (OJK / Sekawan Media) & Kampus',
+      'H3: Sentra Edukasi Madu Kembang Joyo & Petik Apel Batu',
+      'H4: Rekreasi Jatim Park / Museum Angkut & Belanja Oleh-Oleh'
+    ]
   },
   {
-    id: 'ocean',
-    name: 'Phinisi Luxury Liveaboard',
-    location: 'Komodo & Raja Ampat, Indonesia',
-    tagline: 'Pelayaran Mewah Mengarungi Gugusan Karst & Surga Bawah Laut',
-    season: 'Mei - Okt (Calm Seas)',
-    groupSize: '22 Pax Private Charter',
-    transportBadge: 'LUXURY TRADITIONAL PHINISI',
-    transportIcon: <Ship className="w-3.5 h-3.5" />,
-    bgGradient: 'from-cyan-950 via-teal-900 to-slate-950',
-    landscapeImg: 'https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?w=800&auto=format&fit=crop&q=80',
-    vehicleImg: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&auto=format&fit=crop&q=80',
-    crisisStory: 'Arus pusaran Selat Lintah mendadak kencang saat sesi snorkeling Manta Point.',
-    solution: 'Penerapan formasi buddy ganda & tender boat siaga; 100% peserta dievakuasi ke geladak dalam 3 menit tanpa cedera.',
-    itinerary: ['D1: Sunset Padar Island Trekking', 'D2: Komodo Dragon Ranger Encounter', 'D3: Manta Point Drift Snorkel', 'D4: Taka Makassar Sandbar Private Dinner']
+    id: 'jogja',
+    name: 'Heritage & Lava Tour Yogyakarta - Semarang',
+    location: 'D.I. Yogyakarta & Semarang',
+    tagline: 'Eksplorasi Warisan Budaya Keraton, Candi Megah & Sejarah Kolonial',
+    season: 'Musim Liburan & Karyawan',
+    groupSize: '40 - 100 Pax (Instansi / Komunitas)',
+    transportBadge: 'SUPER EXECUTIVE TOURIST COACH',
+    transportIcon: <Landmark className="w-3.5 h-3.5" />,
+    bgGradient: 'from-slate-950 via-[#451a03] to-amber-950',
+    landscapeImg: '/images/trip-7.webp',
+    vehicleImg: '/images/neni-6.webp',
+    crisisStory: 'Kepadatan arus lalu lintas ekstrem di Malioboro & rekayasa jalan searah bus pariwisata.',
+    solution: 'Penerapan sistem drop-zone cepat dan koordinasi titik kumpul terjadwal via grup perwakilan bus; seluruh peserta kembali ke bus tanpa ada yang terpisah.',
+    itinerary: [
+      'H1: Lawang Sewu & Eksplorasi Kota Lama Semarang',
+      'H2: Candi Prambanan & Lava Tour Merapi Jeep Adventure',
+      'H3: Keraton Yogyakarta, Sentra Bakpia & Malioboro Walk',
+      'H4: Sunset Tebing Breksi & Perjalanan Pulang Nyaman'
+    ]
   },
   {
-    id: 'alpine',
-    name: 'Glacier Express & Sakura Heritage',
-    location: 'Kyoto (Jepang) & Swiss Alps',
-    tagline: 'Perpaduan Kuil Zen Sakura dan Kemegahan Puncak Salju Matterhorn',
-    season: 'Apr - Mei (Spring Awakening)',
-    groupSize: '28 Pax Multi-Generasi',
-    transportBadge: 'PANORAMIC GLACIER EXPRESS',
-    transportIcon: <Train className="w-3.5 h-3.5" />,
-    bgGradient: 'from-slate-950 via-rose-950 to-slate-900',
-    landscapeImg: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&auto=format&fit=crop&q=80',
-    vehicleImg: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=500&auto=format&fit=crop&q=80',
-    crisisStory: 'Kereta cepat mengalami kendala teknis listrik; 4 lansia membutuhkan transit nyaman.',
-    solution: 'Alih moda ke bus carter VIP dengan kursi reclining, seluruh koper dipindahkan tim handling tanpa peserta repot.',
-    itinerary: ['D1: Fushimi Inari & Arashiyama Bamboo Grove', 'D2: Private Tea Ceremony Gion', 'D3: Glacier Express Panoramic Mountain Train', 'D4: Zermatt Matterhorn Sunrise Viewing']
+    id: 'bali',
+    name: 'Exotic Island & Cultural Odyssey Bali',
+    location: 'Pulau Dewata Bali',
+    tagline: 'Pesona Bahari Tropis, Sunset Tanah Lot & Pertunjukan Budaya Sakral',
+    season: 'Liburan Sekolah & Gathering',
+    groupSize: '50 - 120 Pax (Corporate & Family)',
+    transportBadge: 'FULL AC PARIWISATA & FERI CHARTER',
+    transportIcon: <Palmtree className="w-3.5 h-3.5" />,
+    bgGradient: 'from-slate-950 via-cyan-950 to-blue-950',
+    landscapeImg: '/images/trip-8.webp',
+    vehicleImg: '/images/neni-2.webp',
+    crisisStory: 'Antrean padat penyeberangan feri Pelabuhan Ketapang - Gilimanuk di tengah malam.',
+    solution: 'Manajemen istirahat peserta di dalam bus dengan pembagian konsumsi teratur serta pendataan manifes kilat di pelabuhan; rombongan tiba di hotel Denpasar dalam kondisi segar.',
+    itinerary: [
+      'H1: Penyeberangan Selat Bali & Sarapan Transit Gilimanuk',
+      'H2: Pura Tanah Lot, Pantai Pandawa & Tari Kecak Melasti',
+      'H3: Wisata Danau Bedugul & Oleh-oleh Krisna / Joger',
+      'H4: Sunset Dinner Pantai Jimbaran & Sayonara Bali'
+    ]
   }
 ];
 
 export const ExpeditionsPage: React.FC = () => {
-  const [selectedId, setSelectedId] = useState<string>('arctic');
+  const [selectedId, setSelectedId] = useState<string>('malang');
   const [isPullTabOpen, setIsPullTabOpen] = useState<boolean>(false);
 
   const activeExp = expeditions.find((e) => e.id === selectedId) || expeditions[0];
@@ -98,10 +112,10 @@ export const ExpeditionsPage: React.FC = () => {
           <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
             <div>
               <span className="text-[10px] font-mono tracking-widest uppercase text-orange-600 font-bold">
-                PAGE 2 • CURATED EXPEDITIONS
+                PAGE 2 • SPESIALISASI DESTINASI NENI
               </span>
               <h3 className="text-xl font-bold font-display tracking-tight text-slate-900">
-                Pop-Up Rute Unggulan
+                Pop-Up Rute Favorit
               </h3>
             </div>
             <Compass className="w-5 h-5 text-orange-600" />
@@ -120,12 +134,12 @@ export const ExpeditionsPage: React.FC = () => {
                 }`}
               >
                 {item.transportIcon}
-                <span>{item.id === 'arctic' ? 'ARCTIC' : item.id === 'ocean' ? 'KOMODO' : 'ALPS'}</span>
+                <span>{item.id === 'malang' ? 'MALANG-BATU' : item.id === 'jogja' ? 'JOGJA-SEMARANG' : 'BALI'}</span>
               </button>
             ))}
           </div>
 
-          {/* 3D Modern Diorama Stage with Cropped Photo Layers */}
+          {/* 3D Modern Diorama Stage with Real Cropped Photo Layers */}
           <div className="relative w-full h-52 sm:h-64 rounded-xl overflow-hidden perspective-1800 shadow-md">
             <AnimatePresence mode="wait">
               <motion.div
@@ -142,7 +156,7 @@ export const ExpeditionsPage: React.FC = () => {
                     📍 {activeExp.location}
                   </span>
                   <span className="bg-black/70 backdrop-blur-md text-white text-[10px] font-mono px-2.5 py-1 rounded-full border border-white/20">
-                    👥 {activeExp.groupSize}
+                    👥 {activeExp.groupSize.split(' ')[0]} Pax
                   </span>
                 </div>
 
@@ -158,23 +172,23 @@ export const ExpeditionsPage: React.FC = () => {
                     <img
                       src={activeExp.landscapeImg}
                       alt={activeExp.name}
-                      className="w-full h-full object-cover filter contrast-110"
+                      className="w-full h-full object-cover object-top filter contrast-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   </motion.div>
 
-                  {/* Layer 2 (Front): Cropped Transport / Vehicle Cutout Card */}
+                  {/* Layer 2 (Front): Cropped Real Tour Leader & Bus Cutout */}
                   <motion.div
                     initial={{ rotateX: -85, y: 25, opacity: 0 }}
                     animate={{ rotateX: 0, y: 0, opacity: 1 }}
                     transition={{ type: 'spring', damping: 12, stiffness: 90, delay: 0.35 }}
                     className="relative z-30 w-full flex items-end justify-between px-3 pb-1"
                   >
-                    <div className="w-36 h-20 rounded-lg overflow-hidden border-2 border-white shadow-2xl bg-slate-900 rotate-[-2deg] hover:rotate-0 transition-transform">
+                    <div className="w-36 h-22 rounded-lg overflow-hidden border-2 border-white shadow-2xl bg-slate-900 rotate-[-2deg] hover:rotate-0 transition-transform">
                       <img
                         src={activeExp.vehicleImg}
-                        alt="Vehicle"
-                        className="w-full h-full object-cover"
+                        alt="Armada Bus Pariwisata"
+                        className="w-full h-full object-cover object-top"
                       />
                       <div className="absolute bottom-1 left-1 bg-black/80 text-orange-300 text-[8px] font-mono px-1.5 py-0.5 rounded">
                         {activeExp.transportBadge.split(' ')[0]}
@@ -202,30 +216,30 @@ export const ExpeditionsPage: React.FC = () => {
           <div className="flex items-center gap-3 text-[10px] font-mono text-slate-500">
             <span>📅 {activeExp.season}</span>
             <span>•</span>
-            <span className="text-emerald-600 font-bold">✓ Zero-Incident Verified</span>
+            <span className="text-emerald-600 font-bold">✓ Teruji di Lapangan</span>
           </div>
         </div>
       </div>
 
-      {/* RIGHT SPREAD: Modern Case Study & Interactive Pull-Tab */}
+      {/* RIGHT SPREAD: Case Study & Interactive Pull-Tab */}
       <div className="relative bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-card-elevated flex flex-col justify-between overflow-hidden">
         <div>
           {/* Header */}
           <div className="border-b border-slate-100 pb-3 mb-4">
             <span className="text-[10px] font-mono tracking-widest uppercase text-orange-600 font-bold">
-              OPERATIONAL CRISIS & LOGISTICS DOSSIER
+              HANDLING COMPLAIN & CRISIS MANAGEMENT
             </span>
             <h3 className="text-xl font-bold font-display tracking-tight text-slate-900">
-              Mitigasi Krisis Lapangan
+              Pengalaman Lapangan & Solusi
             </h3>
           </div>
 
-          {/* Real Tour Leader Crisis Management Story */}
+          {/* Real Crisis Management Story */}
           <div className="space-y-3 font-sans text-xs">
             <div className="bg-rose-50/80 p-3.5 rounded-xl border border-rose-200">
               <div className="flex items-center gap-1.5 text-rose-800 font-bold text-xs mb-1">
                 <AlertTriangle className="w-4 h-4 text-rose-600" />
-                <span>TANTANGAN DI LAPANGAN:</span>
+                <span>KENDALA LAPANGAN:</span>
               </div>
               <p className="leading-relaxed text-rose-900">{activeExp.crisisStory}</p>
             </div>
@@ -233,7 +247,7 @@ export const ExpeditionsPage: React.FC = () => {
             <div className="bg-emerald-50/80 p-3.5 rounded-xl border border-emerald-200">
               <div className="flex items-center gap-1.5 text-emerald-800 font-bold text-xs mb-1">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                <span>SOLUSI CEPAT TOUR LEADER:</span>
+                <span>SOLUSI KILAT TOUR LEADER:</span>
               </div>
               <p className="leading-relaxed text-emerald-900">{activeExp.solution}</p>
             </div>
@@ -244,7 +258,7 @@ export const ExpeditionsPage: React.FC = () => {
         <div className="mt-4 pt-3 border-t border-slate-100 relative">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[9px] font-mono uppercase text-slate-400 font-bold">
-              BLUEPRINT ITINERARY DOSSIER
+              BLUEPRINT ITINERARY RESMI
             </span>
             <button
               onClick={togglePullTab}
@@ -268,9 +282,9 @@ export const ExpeditionsPage: React.FC = () => {
                 className="bg-slate-50 border border-slate-200 p-3.5 rounded-xl shadow-inner text-slate-900"
               >
                 <div className="flex items-center justify-between pb-1.5 border-b border-slate-200 mb-2">
-                  <span className="font-display font-bold text-xs">BLUEPRINT ITINERARY RESMI</span>
+                  <span className="font-display font-bold text-xs">SUSUNAN JADWAL RUTE TRIP</span>
                   <span className="text-[9px] font-mono bg-orange-500 text-white px-2 py-0.5 rounded-full font-bold">
-                    CURATED BY ARD
+                    NENI SURYANI SPECIALIST
                   </span>
                 </div>
                 <ul className="space-y-1.5 text-xs font-sans">
@@ -288,7 +302,7 @@ export const ExpeditionsPage: React.FC = () => {
                 className="bg-slate-50 border border-dashed border-slate-300 p-3 rounded-xl text-center cursor-pointer hover:bg-slate-100 transition-colors"
               >
                 <p className="text-xs font-sans text-slate-600">
-                  👉 <em>Klik tombol untuk menarik kartu rute rahasia & logistik</em>
+                  👉 <em>Klik tombol untuk menarik susunan itinerary & alur kegiatan</em>
                 </p>
               </div>
             )}

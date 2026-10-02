@@ -10,11 +10,11 @@ import { BoardingPassPage } from './pages/BoardingPassPage';
 
 const SPREADS = [
   { id: 0, title: 'Cover Lookbook', short: 'Cover' },
-  { id: 1, title: 'Halaman 1: Paspor & Diorama Bromo', short: 'Paspor' },
-  { id: 2, title: 'Halaman 2: Pop-Up Rute Ekspedisi', short: 'Ekspedisi' },
-  { id: 3, title: 'Halaman 3: Tech-Kit & Keahlian', short: 'Tech-Kit' },
-  { id: 4, title: 'Halaman 4: Ulasan Tamu & Testimoni', short: 'Ulasan' },
-  { id: 5, title: 'Halaman 5: Boarding Pass & Kontak', short: 'Booking' }
+  { id: 1, title: 'Halaman 1: Kredensial & Diorama Malang', short: 'Kredensial' },
+  { id: 2, title: 'Halaman 2: Pop-Up Rute Spesialisasi', short: 'Rute Wisata' },
+  { id: 3, title: 'Halaman 3: Keahlian Tour Leader', short: 'Keahlian' },
+  { id: 4, title: 'Halaman 4: Ulasan & Bukti Lapangan', short: 'Testimoni' },
+  { id: 5, title: 'Halaman 5: Boarding Pass & Kontak', short: 'Kontak/Booking' }
 ];
 
 export const BookContainer: React.FC = () => {
@@ -75,7 +75,7 @@ export const BookContainer: React.FC = () => {
             {/* SPREAD 0: THE MODERN EDITORIAL LOOKBOOK COVER */}
             {currentSpread === 0 ? (
               <div className="w-full max-w-3xl mx-auto bg-gradient-to-b from-slate-900 via-slate-950 to-black rounded-3xl border-2 border-slate-700/60 shadow-[0_30px_90px_rgba(0,0,0,0.85)] p-6 sm:p-12 relative overflow-hidden text-white flex flex-col items-center justify-between min-h-[520px] sm:min-h-[580px]">
-                {/* Modern Neon Grid Texture */}
+                {/* Modern Grid & Glow Accent */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
                 <div className="absolute -top-32 -left-32 w-80 h-80 bg-orange-600/15 rounded-full blur-[100px] pointer-events-none" />
 
@@ -83,32 +83,32 @@ export const BookContainer: React.FC = () => {
                 <div className="text-center relative z-10 space-y-2 mt-4">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-800/90 border border-slate-700 text-xs font-mono text-orange-400 uppercase tracking-widest shadow-inner">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>CERTIFIED TOUR LEADER • EXPEDITION VOL. 01</span>
+                    <span>PROFESSIONAL TOUR LEADER • KHARISMA TOUR & TRAVEL</span>
                   </div>
                   <h1 className="text-4xl sm:text-6xl font-black font-display tracking-tight text-white drop-shadow-md">
-                    THE MODERN ODYSSEY
+                    NENI SURYANI
                   </h1>
                   <p className="text-xs sm:text-sm font-mono text-slate-400 tracking-widest uppercase">
-                    ARDIAN "ARD" PRATAMA • INTERNATIONAL TOUR SPECIALIST
+                    TOUR LEADER & TOUR SPECIALIST • DOMESTIC EXPEDITION
                   </p>
                 </div>
 
-                {/* Center Hero Cutout Graphic */}
+                {/* Center Hero Cutout Graphic (Real Photo of Neni at Bus) */}
                 <div className="relative z-10 my-6 flex flex-col items-center">
-                  <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-gradient-to-tr from-slate-800 to-slate-900 border border-slate-700 flex items-center justify-center p-4 shadow-[0_15px_40px_rgba(0,0,0,0.6)] group relative overflow-hidden">
+                  <div className="w-36 h-48 sm:w-44 sm:h-56 rounded-3xl bg-slate-800 border-2 border-orange-500/80 flex items-center justify-center p-2 shadow-[0_20px_50px_rgba(249,115,22,0.3)] group relative overflow-hidden">
                     <img
-                      src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=500&auto=format&fit=crop&q=80"
-                      alt="Expedition Cover"
-                      className="w-full h-full object-cover rounded-2xl filter contrast-125 opacity-80 group-hover:scale-110 transition-transform duration-700"
+                      src="/images/neni-1.webp"
+                      alt="Neni Suryani Tour Leader"
+                      className="w-full h-full object-cover rounded-2xl filter contrast-110 group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end justify-center pb-2">
-                      <span className="text-[10px] font-mono text-orange-400 font-bold tracking-widest uppercase">
-                        GLOBAL EXPEDITIONS
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent flex items-end justify-center pb-2.5">
+                      <span className="text-[10px] font-mono text-orange-300 font-bold tracking-widest uppercase bg-black/60 px-2 py-0.5 rounded backdrop-blur-xs">
+                        KHARISMA TRAVEL CREW
                       </span>
                     </div>
                   </div>
-                  <span className="text-xs font-sans text-slate-400 mt-3 text-center max-w-sm">
-                    “Eksplorasi berkelas dengan kepastian rasa aman, manajemen krisis presisi, dan memori tak terlupakan.”
+                  <span className="text-xs font-sans text-slate-300 mt-3 text-center max-w-sm">
+                    “Membimbing perjalanan dengan senyum, koordinasi cepat, dan kepastian rasa aman bagi setiap rombongan.”
                   </span>
                 </div>
 
@@ -119,11 +119,11 @@ export const BookContainer: React.FC = () => {
                     className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 hover:from-orange-600 hover:to-orange-600 text-slate-950 font-display font-bold text-sm tracking-widest uppercase shadow-[0_10px_35px_rgba(249,115,22,0.35)] border border-orange-300/40 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer group"
                   >
                     <BookOpen className="w-4 h-4 text-slate-950 group-hover:scale-110 transition-transform" />
-                    <span>BUKA BUKU JURNAL PORTOFOLIO</span>
+                    <span>BUKA PORTOFOLIO NENI SURYANI</span>
                     <ChevronRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />
                   </button>
                   <p className="text-[10px] font-mono text-slate-500 mt-2">
-                    ✦ Klik untuk membuka lembar paspor & pop-up image diorama
+                    ✦ Klik untuk membuka rekam jejak, spesialisasi rute & diorama 3D
                   </p>
                 </div>
               </div>
@@ -135,7 +135,7 @@ export const BookContainer: React.FC = () => {
 
                 {/* Modern Orange Tag Bookmark Hanging top right */}
                 <div className="absolute -top-3 right-10 px-3 py-1 bg-orange-600 text-white text-[9px] font-mono font-bold rounded-b-md shadow-md z-30 uppercase tracking-widest">
-                  PORTFOLIO 2026
+                  KHARISMA TRAVEL • 2026
                 </div>
 
                 {/* Active Spread Component Content */}

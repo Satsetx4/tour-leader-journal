@@ -9,29 +9,29 @@ interface TravelLoaderProps {
 
 const STEPS = [
   {
-    label: 'PLANNING TRAVEL & EXPEDITION ROUTES...',
-    sub: 'Menganalisis radar cuaca, izin destinasi, dan itinerary terbaik.',
+    label: 'PLANNING TRAVEL & ITINERARY...',
+    sub: 'Menyusun rute terbaik Yogyakarta, Semarang, Malang, Batu & Bali.',
     icon: <MapPin className="w-8 h-8 text-orange-500 animate-bounce" />,
     color: 'from-orange-500 to-amber-500',
     progress: 25
   },
   {
-    label: 'BOOKING LUXURY HOTELS & CHALETS...',
-    sub: 'Mengunci reservasi kamar terbaik dan private dining rombongan.',
+    label: 'BOOKING HOTEL & VENDOR CHECK...',
+    sub: 'Koordinasi rooming list hotel, transit resto, dan perizinan destinasi.',
     icon: <Hotel className="w-8 h-8 text-blue-500 animate-pulse" />,
     color: 'from-blue-500 to-cyan-500',
     progress: 55
   },
   {
-    label: 'BOARDING BUS & GROUND LOGISTICS...',
-    sub: 'Memastikan armada bus wisata VIP nyaman dan siap meluncur.',
+    label: 'BOARDING BUS & FLEET CHECK...',
+    sub: 'Pemeriksaan armada Jetbus & Pandawa 87 siap kawal rombongan.',
     icon: <Bus className="w-8 h-8 text-emerald-500 animate-bounce" />,
     color: 'from-emerald-500 to-teal-500',
     progress: 85
   },
   {
     label: "LET'S GOOOOO! 🚀",
-    sub: 'Petualangan dimulai. Buka buku jurnal pop-up Anda.',
+    sub: 'Neni Suryani Tour Leader siap memandu perjalanan seru Anda!',
     icon: <Sparkles className="w-10 h-10 text-yellow-400 animate-spin" />,
     color: 'from-orange-500 via-rose-500 to-yellow-400',
     progress: 100
@@ -42,7 +42,6 @@ export const TravelLoader: React.FC<TravelLoaderProps> = ({ onComplete }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
-    // Step progression
     const timer1 = setTimeout(() => {
       setCurrentStep(1);
       sounds.playPop();
@@ -87,7 +86,7 @@ export const TravelLoader: React.FC<TravelLoaderProps> = ({ onComplete }) => {
       <div className="absolute top-8 flex items-center gap-2">
         <span className="w-2.5 h-2.5 rounded-full bg-orange-500 animate-ping" />
         <span className="text-xs font-mono font-bold tracking-widest uppercase text-slate-400">
-          ARDIAN PRATAMA • EXPEDITION OS
+          NENI SURYANI • TOUR LEADER SPECIALIST
         </span>
       </div>
 
@@ -154,7 +153,7 @@ export const TravelLoader: React.FC<TravelLoaderProps> = ({ onComplete }) => {
         }}
         className="absolute bottom-8 text-xs font-mono text-slate-500 hover:text-orange-400 transition-colors cursor-pointer underline underline-offset-4"
       >
-        Lewati Animasi (Skip to Portfolio) →
+        Lewati Animasi (Masuk ke Portofolio) →
       </button>
     </motion.div>
   );
