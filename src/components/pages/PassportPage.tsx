@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShieldCheck, Award, HeartPulse, Stamp as StampIcon, Sparkles } from 'lucide-react';
+import { ShieldCheck, Award, HeartPulse, Stamp as StampIcon, Sparkles, QrCode } from 'lucide-react';
 import { sounds } from '../../lib/sounds';
 
 interface StampData {
@@ -15,17 +15,17 @@ interface StampData {
 
 export const PassportPage: React.FC = () => {
   const [stamps, setStamps] = useState<StampData[]>([
-    { id: 1, country: 'JAPAN IMMIGRATION • NARITA', date: '2024-11-12', x: 70, y: 75, rotate: -8, color: '#dc2626' },
-    { id: 2, country: 'SCHENGEN BORDER • REYKJAVIK', date: '2025-02-04', x: 25, y: 82, rotate: 12, color: '#2563eb' }
+    { id: 1, country: 'TOKYO • NARITA INTL AIRPORT', date: '2025-10-18', x: 65, y: 78, rotate: -6, color: '#f97316' },
+    { id: 2, country: 'OSLO • GARDERMOEN SCHENGEN', date: '2026-02-14', x: 28, y: 84, rotate: 8, color: '#0ea5e9' }
   ]);
 
   const addRandomStamp = () => {
     sounds.playStamp();
     const destinations = [
-      { name: 'NEW ZEALAND • QUEENSTOWN ENTRY', color: '#16a34a' },
-      { name: 'SWISS BORDER CONTROL • ZURICH', color: '#dc2626' },
-      { name: 'KOMODO NATIONAL PARK • LABUAN BAJO', color: '#ea580c' },
-      { name: 'KINGDOM OF BHUTAN • PARO AIRPORT', color: '#9333ea' }
+      { name: 'ZURICH KLOTEN • SWISS BORDER', color: '#ef4444' },
+      { name: 'REYKJAVIK • ARCTIC GATEWAY', color: '#06b6d4' },
+      { name: 'QUEENSTOWN • FIORDLAND ENTRY', color: '#10b981' },
+      { name: 'LABUAN BAJO • KOMODO EXPEDITION', color: '#f59e0b' }
     ];
     const picked = destinations[Math.floor(Math.random() * destinations.length)];
     const newStamp: StampData = {
@@ -33,253 +33,262 @@ export const PassportPage: React.FC = () => {
       country: picked.name,
       date: new Date().toISOString().slice(0, 10),
       x: 20 + Math.random() * 55,
-      y: 68 + Math.random() * 22,
-      rotate: Math.random() * 26 - 13,
+      y: 68 + Math.random() * 20,
+      rotate: Math.random() * 24 - 12,
       color: picked.color
     };
-    setStamps(prev => [...prev, newStamp]);
+    setStamps((prev) => [...prev, newStamp]);
   };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 h-full">
-      {/* LEFT SPREAD: Tour Leader Official Passport */}
-      <div className="relative bg-[#fcf8ed] border border-[#d8c8b0] rounded-xl p-5 sm:p-6 shadow-sm flex flex-col justify-between overflow-hidden">
-        {/* Subtle Watermark BG */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.035] flex items-center justify-center">
-          <svg viewBox="0 0 100 100" className="w-80 h-80 fill-current text-[#451a03]">
-            <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" fill="none"/>
-            <path d="M50 5 L50 95 M5 50 L95 50 M18 18 L82 82 M18 82 L82 18" stroke="currentColor" strokeWidth="1"/>
-          </svg>
-        </div>
+      {/* LEFT SPREAD: Modern Biometric Tour Leader Passport */}
+      <div className="relative bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-card-elevated flex flex-col justify-between overflow-hidden">
+        {/* Subtle Topographic Background Accent */}
+        <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-orange-500/10 via-transparent to-transparent pointer-events-none rounded-tr-2xl" />
 
-        {/* Passport Header */}
         <div>
-          <div className="flex items-center justify-between border-b-2 border-[#8c6b48]/30 pb-3 mb-4">
+          {/* Modern Header */}
+          <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
             <div>
-              <p className="text-[10px] tracking-widest uppercase font-typewriter text-[#8c6b48] font-bold">
-                PASPOR RESMI EKSPEDISI & WISATA
-              </p>
-              <h3 className="text-lg font-bold font-journal tracking-wider text-[#3d2714]">
-                LEAD EXPEDITIONIST PASSPORT
+              <span className="text-[10px] font-mono tracking-widest uppercase text-orange-600 font-bold flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping" />
+                OFFICIAL DIGITAL CREDENTIAL
+              </span>
+              <h3 className="text-xl font-bold font-display tracking-tight text-slate-900">
+                Lead Expeditionist Passport
               </h3>
             </div>
-            <span className="text-xs px-2.5 py-1 rounded bg-[#2a1d15] text-[#eab308] font-typewriter font-bold shadow-inner">
-              TL-SPECIALIST
-            </span>
+            <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-900 text-orange-400 font-mono text-[10px] font-bold shadow-xs">
+              <span>TL-GLOBAL</span>
+            </div>
           </div>
 
-          {/* Photo & Identity Section */}
+          {/* Identity & Modern Card */}
           <div className="flex flex-col sm:flex-row gap-4 items-start mb-4">
-            {/* Polaroid Photo with Washi Tape */}
-            <div className="relative group shrink-0 mx-auto sm:mx-0">
-              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-14 h-4 bg-[#fde68a]/80 backdrop-blur-xs border border-[#eab308]/40 rotate-1 shadow-xs z-10" />
-              <div className="w-28 h-36 bg-white p-2 pb-5 border border-[#cbb396] shadow-md rounded-xs rotate-[-1.5deg] group-hover:rotate-0 transition-transform">
-                <div className="w-full h-full bg-gradient-to-tr from-[#2d4a3e] via-[#475569] to-[#1e293b] rounded-xs flex flex-col items-center justify-center text-center p-2 relative overflow-hidden">
-                  <div className="w-12 h-12 rounded-full bg-[#f8fafc]/20 border-2 border-white/60 flex items-center justify-center mb-1 text-white font-bold text-xl shadow">
-                    AP
-                  </div>
-                  <span className="text-[10px] text-white/90 font-mono font-bold tracking-tight">ARD PRATAMA</span>
-                  <span className="text-[8px] text-[#fbbf24] font-typewriter uppercase">Tour Leader</span>
-                  <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full border border-amber-300/40 opacity-40 flex items-center justify-center rotate-12" />
+            {/* Cropped Photo Card with Clean Modern Border */}
+            <div className="relative shrink-0 mx-auto sm:mx-0 group">
+              <div className="w-32 h-40 rounded-xl overflow-hidden shadow-lg border-2 border-slate-900 relative bg-gradient-to-b from-slate-800 to-slate-950">
+                {/* Modern Cropped Expeditionist Photo */}
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80"
+                  alt="Ardian Pratama"
+                  className="w-full h-full object-cover object-top filter grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500"
+                />
+                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent p-2 text-center">
+                  <span className="text-[11px] font-bold font-display text-white block tracking-wider">
+                    ARD PRATAMA
+                  </span>
+                  <span className="text-[8px] font-mono text-orange-400 uppercase tracking-widest">
+                    Tour Specialist
+                  </span>
                 </div>
+              </div>
+              <div className="absolute -bottom-2 -right-2 bg-white p-1 rounded-md shadow-md border border-slate-200">
+                <QrCode className="w-5 h-5 text-slate-800" />
               </div>
             </div>
 
-            {/* Passport Data Fields */}
-            <div className="flex-1 w-full space-y-1.5 text-xs font-typewriter text-[#423223]">
-              <div className="grid grid-cols-2 gap-2 border-b border-[#e2d5c3] pb-1">
+            {/* Credential Data Grid */}
+            <div className="flex-1 w-full space-y-2 text-xs font-sans text-slate-700">
+              <div className="grid grid-cols-2 gap-2 border-b border-slate-100 pb-2">
                 <div>
-                  <span className="text-[9px] text-[#8c6b48] block">NAMA LENGKAP</span>
-                  <strong className="text-sm tracking-wide text-[#2b1810]">ARDIAN PRATAMA</strong>
+                  <span className="text-[9px] font-mono text-slate-400 uppercase block">FULL NAME</span>
+                  <strong className="text-sm font-display text-slate-900">Ardian Pratama</strong>
                 </div>
                 <div>
-                  <span className="text-[9px] text-[#8c6b48] block">NOMOR LISENSI BNSP</span>
-                  <span className="font-bold text-[#b45309]">BNSP-TL-8829104</span>
+                  <span className="text-[9px] font-mono text-slate-400 uppercase block">BNSP LICENSE</span>
+                  <span className="font-mono font-bold text-orange-600">BNSP-TL-8829104</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 border-b border-[#e2d5c3] pb-1">
+              <div className="grid grid-cols-2 gap-2 border-b border-slate-100 pb-2">
                 <div>
-                  <span className="text-[9px] text-[#8c6b48] block">SPESIALISASI</span>
-                  <span className="font-medium text-[#2d4a3e]">Extreme & Cultural Tour</span>
+                  <span className="text-[9px] font-mono text-slate-400 uppercase block">SPECIALTY</span>
+                  <span className="font-semibold text-slate-800">Extreme & VIP Leisure</span>
                 </div>
                 <div>
-                  <span className="text-[9px] text-[#8c6b48] block">STATUS STATUS MEDIS</span>
-                  <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-800">
-                    <HeartPulse className="w-3 h-3 text-red-600" /> Wilderness CPR Active
+                  <span className="text-[9px] font-mono text-slate-400 uppercase block">MEDICAL PROTOCOL</span>
+                  <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600">
+                    <HeartPulse className="w-3.5 h-3.5 text-red-500" /> Wilderness CPR Active
                   </span>
                 </div>
               </div>
 
               <div>
-                <span className="text-[9px] text-[#8c6b48] block">BAHASA AKTIF</span>
-                <p className="text-[11px] font-medium text-[#443322]">
-                  Bahasa Indonesia (Native), English (Fluent C1), Japanese (Conversational)
+                <span className="text-[9px] font-mono text-slate-400 uppercase block">FLUENT LANGUAGES</span>
+                <p className="text-[11px] font-medium text-slate-800">
+                  Indonesian (Native), English (C1 Professional), Japanese (Daily Conversational)
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Badges / Trust Seals */}
-          <div className="grid grid-cols-3 gap-2 bg-[#f4ebe1] p-2.5 rounded-lg border border-[#dfceb9]">
+          {/* Modern Trust Badges */}
+          <div className="grid grid-cols-3 gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
             <div className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
-              <span className="text-[10px] font-typewriter font-semibold text-[#452c1a] leading-tight">
-                Safety First Protocol
+              <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span className="text-[10px] font-sans font-bold text-slate-800 leading-tight">
+                Safety First Standard
               </span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Award className="w-4 h-4 text-amber-700 shrink-0" />
-              <span className="text-[10px] font-typewriter font-semibold text-[#452c1a] leading-tight">
-                WFTGA Standard
+              <Award className="w-4 h-4 text-orange-600 shrink-0" />
+              <span className="text-[10px] font-sans font-bold text-slate-800 leading-tight">
+                WFTGA Certified
               </span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-blue-700 shrink-0" />
-              <span className="text-[10px] font-typewriter font-semibold text-[#452c1a] leading-tight">
-                VIP Handling
+              <Sparkles className="w-4 h-4 text-blue-600 shrink-0" />
+              <span className="text-[10px] font-sans font-bold text-slate-800 leading-tight">
+                VIP Concierge
               </span>
             </div>
           </div>
         </div>
 
-        {/* Dynamic Passport Visa Stamps */}
-        <div className="relative min-h-[90px] mt-3 pt-2 border-t border-dashed border-[#bfa990]">
+        {/* Dynamic Stamp Area */}
+        <div className="relative min-h-[90px] mt-3 pt-2 border-t border-dashed border-slate-200">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-[9px] font-typewriter uppercase text-[#8c6b48] font-bold">
-              VISA ENTRY STAMPS (INTERAKTIF)
+            <span className="text-[9px] font-mono uppercase text-slate-400 font-bold">
+              DIGITAL IMMIGRATION ENTRY STAMPS
             </span>
             <button
               onClick={addRandomStamp}
-              className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-typewriter font-bold bg-[#dc2626] text-white rounded-md shadow-xs hover:bg-[#b91c1c] active:scale-95 transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold bg-slate-900 hover:bg-orange-600 text-white rounded-lg shadow-sm active:scale-95 transition-all cursor-pointer"
             >
-              <StampIcon className="w-3 h-3" />
+              <StampIcon className="w-3 h-3 text-orange-400" />
               <span>Cap Paspor!</span>
             </button>
           </div>
 
-          {/* Rendered ink stamps */}
           <AnimatePresence>
             {stamps.map((st) => (
               <motion.div
                 key={st.id}
                 initial={{ scale: 2.2, opacity: 0 }}
-                animate={{ scale: 1, opacity: 0.85 }}
+                animate={{ scale: 1, opacity: 0.9 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 transition={{ type: 'spring', damping: 15 }}
-                className="absolute pointer-events-none select-none px-2 py-1 rounded border-2 border-dashed font-typewriter font-black text-[9px] uppercase tracking-tighter"
+                className="absolute pointer-events-none select-none px-2.5 py-1 rounded-md border-2 border-dashed font-mono font-black text-[9px] uppercase tracking-tighter"
                 style={{
                   left: `${st.x}%`,
                   top: `${st.y}%`,
                   transform: `translate(-50%, -50%) rotate(${st.rotate}deg)`,
                   color: st.color,
                   borderColor: st.color,
-                  boxShadow: `0 0 1px ${st.color}`
+                  backgroundColor: `${st.color}10`
                 }}
               >
-                <div>★ {st.country} ★</div>
-                <div className="text-[8px] font-mono text-center tracking-normal">{st.date} • ADMITTED</div>
+                <div>✦ {st.country} ✦</div>
+                <div className="text-[8px] font-mono text-center tracking-normal">{st.date} • VERIFIED</div>
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
       </div>
 
-      {/* RIGHT SPREAD: 3D Pop-Up Diorama & Tour Leader Manifesto */}
-      <div className="relative bg-[#fcf8ed] border border-[#d8c8b0] rounded-xl p-5 sm:p-6 shadow-sm flex flex-col justify-between overflow-hidden">
+      {/* RIGHT SPREAD: Modern 3D Pop-Up Cropped Image Diorama */}
+      <div className="relative bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-card-elevated flex flex-col justify-between overflow-hidden">
         <div>
           {/* Header */}
-          <div className="border-b-2 border-[#8c6b48]/30 pb-2 mb-4">
-            <span className="text-[10px] tracking-widest uppercase font-typewriter text-[#8c6b48] font-bold">
-              DIORAMA 3D LEMBAR PERTAMA
+          <div className="border-b border-slate-100 pb-3 mb-4">
+            <span className="text-[10px] font-mono tracking-widest uppercase text-orange-600 font-bold">
+              3D POP-UP CROPPED IMAGE DIORAMA
             </span>
-            <h3 className="text-lg font-bold font-journal tracking-wider text-[#3d2714]">
-              Mt. Bromo Expedition • Dawn Awakening
+            <h3 className="text-xl font-bold font-display tracking-tight text-slate-900">
+              Mt. Bromo Sunrise • Expedition Basecamp
             </h3>
           </div>
 
-          {/* 3D Pop-Up Stand-Up Diorama Stage */}
-          <div className="relative w-full h-44 sm:h-52 bg-gradient-to-b from-[#fef3c7] via-[#fed7aa] to-[#d97706]/20 rounded-lg border border-[#e5d5be] overflow-hidden perspective-1500 flex items-end justify-center p-3 shadow-inner">
-            {/* Background Layer: Golden Rising Sun & Clouds */}
+          {/* 3D Modern Diorama Stage with Layered Cropped Photography */}
+          <div className="relative w-full h-52 sm:h-60 rounded-xl overflow-hidden perspective-1800 bg-gradient-to-b from-sky-900 via-indigo-950 to-slate-950 shadow-inner flex items-end justify-center p-3 group">
+            {/* Background Sky Layer: Rising Golden Sun & Nebula Clouds */}
             <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="absolute top-4 w-20 h-20 rounded-full bg-gradient-to-t from-[#f59e0b] to-[#fbbf24] shadow-[0_0_35px_rgba(245,158,11,0.6)]"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="absolute top-3 w-28 h-28 rounded-full bg-gradient-to-t from-amber-500 to-orange-400 blur-sm opacity-80"
             />
-            <div className="absolute top-8 left-6 w-24 h-6 bg-white/60 rounded-full blur-[1px]" />
-            <div className="absolute top-12 right-8 w-28 h-7 bg-white/50 rounded-full blur-[1px]" />
+            <div className="absolute top-6 left-6 text-white/40 font-mono text-[9px]">
+              ELEVATION: 2,329M • LAT: -7.9425° S
+            </div>
 
-            {/* Pop-Up Layer 1: Semeru & Batok Mountain Silhouette (Standing Up) */}
+            {/* POP-UP LAYER 1 (Far Depth): Cropped Mountain Ridge Photography */}
             <motion.div
-              initial={{ rotateX: -75, transformOrigin: 'bottom' }}
-              animate={{ rotateX: 0 }}
-              transition={{ type: 'spring', damping: 14, stiffness: 90, delay: 0.3 }}
-              className="absolute bottom-6 z-10 w-full flex items-end justify-center pointer-events-none"
+              initial={{ rotateX: -75, opacity: 0 }}
+              animate={{ rotateX: 0, opacity: 1 }}
+              transition={{ type: 'spring', damping: 14, stiffness: 90, delay: 0.2 }}
+              className="absolute bottom-8 inset-x-2 z-10 flex justify-center pointer-events-none transform-style-preserve-3d"
             >
-              {/* Mountain paper cut-out silhouettes */}
-              <svg viewBox="0 0 400 120" className="w-full h-24 sm:h-28 filter drop-shadow-[0_8px_6px_rgba(0,0,0,0.3)]">
-                {/* Back peaks */}
-                <polygon points="40,120 120,30 200,120" fill="#78350f" opacity="0.8" />
-                <polygon points="140,120 250,15 360,120" fill="#451a03" />
-                {/* Batok ridge ridges */}
-                <polygon points="220,120 290,45 380,120" fill="#582405" />
-                {/* Volcanic smoke paper fold */}
-                <circle cx="250" cy="18" r="8" fill="#e2e8f0" opacity="0.6" />
-                <circle cx="258" cy="10" r="11" fill="#cbd5e1" opacity="0.5" />
-              </svg>
+              <div className="relative w-full h-32 rounded-lg overflow-hidden border-2 border-white/20 shadow-popup-layer">
+                <img
+                  src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?w=800&auto=format&fit=crop&q=80"
+                  alt="Bromo Ridge Cutout"
+                  className="w-full h-full object-cover object-center filter contrast-125"
+                />
+                <div className="absolute top-2 left-2 bg-slate-950/80 backdrop-blur-xs text-orange-400 text-[8px] font-mono px-2 py-0.5 rounded border border-orange-500/30">
+                  🏔️ VOLCANIC CALDERA
+                </div>
+              </div>
             </motion.div>
 
-            {/* Pop-Up Layer 2: 4x4 Expedition Jeep & Camping Tent (Front Fold) */}
+            {/* POP-UP LAYER 2 (Mid Depth): Cropped 4x4 Expedition Vehicle Stand-Up */}
             <motion.div
-              initial={{ rotateX: -85, transformOrigin: 'bottom' }}
-              animate={{ rotateX: 0 }}
-              transition={{ type: 'spring', damping: 12, stiffness: 85, delay: 0.5 }}
-              className="relative z-20 w-full flex items-end justify-between px-4 pb-1"
+              initial={{ rotateX: -85, y: 30, opacity: 0 }}
+              animate={{ rotateX: 0, y: 0, opacity: 1 }}
+              transition={{ type: 'spring', damping: 12, stiffness: 85, delay: 0.4 }}
+              className="relative z-20 w-full flex items-end justify-between px-3 pb-1"
             >
-              {/* Paper Pop-up 4x4 Land Cruiser */}
-              <div className="bg-[#1e293b] text-white px-2.5 py-1.5 rounded-sm border border-slate-600 shadow-lg text-[9px] font-mono flex items-center gap-1.5 -rotate-2">
-                <span className="text-amber-400 font-bold">4X4 EXPEDITION</span>
+              {/* Cropped 4x4 Vehicle Stand-Up with White Border */}
+              <div className="w-36 h-20 rounded-lg overflow-hidden border-2 border-white shadow-2xl bg-slate-900 rotate-[-2deg] hover:rotate-0 transition-transform">
+                <img
+                  src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400&auto=format&fit=crop&q=80"
+                  alt="Expedition Vehicle"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-1 left-1 bg-black/80 text-white text-[8px] font-mono px-1.5 py-0.5 rounded">
+                  🚙 4X4 EXPEDITION
+                </div>
+              </div>
+
+              {/* Cropped Explorer Badge Stand-Up */}
+              <div className="bg-white/95 text-slate-900 px-3 py-1.5 rounded-lg border-2 border-orange-500 shadow-2xl text-[10px] font-mono font-bold rotate-2 flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              </div>
-
-              {/* Tent paper cutout */}
-              <div className="bg-[#b91c1c] text-[#fef2f2] px-3 py-1 rounded-t-lg border-2 border-[#7f1d1d] shadow-xl text-[10px] font-typewriter font-bold rotate-1">
-                ⛺ BASECAMP DAWN
+                <span>DAWN SUMMIT TEAM</span>
               </div>
             </motion.div>
 
-            {/* Diorama Paper Base Fold Line */}
-            <div className="absolute bottom-0 inset-x-0 h-4 bg-[#b45309]/30 border-t border-[#92400e]/40 shadow-inner" />
+            {/* Floor Fold Line */}
+            <div className="absolute bottom-0 inset-x-0 h-3 bg-gradient-to-t from-slate-950 to-transparent" />
           </div>
 
-          <p className="text-[10px] text-center font-typewriter text-[#8c6b48] mt-1.5 italic">
-            *Diorama mekar berdiri otomatis saat lembar jurnal dibuka
+          <p className="text-[10px] text-center font-mono text-slate-400 mt-2">
+            ✦ Layer foto cropped mekar berdiri 3D saat halaman dibuka
           </p>
         </div>
 
         {/* Proven Track Record Stats */}
-        <div className="mt-4 pt-3 border-t border-[#dccbb4]">
+        <div className="mt-4 pt-3 border-t border-slate-100">
           <div className="grid grid-cols-3 gap-2 text-center mb-3">
-            <div className="bg-[#f2e7d5] p-2 rounded-lg border border-[#d8c5aa]">
-              <span className="block text-xl font-black font-journal text-[#3d2714]">48+</span>
-              <span className="text-[9px] font-typewriter text-[#785b3e] font-semibold">Negara Dijelajahi</span>
+            <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <span className="block text-2xl font-black font-display text-slate-900">48+</span>
+              <span className="text-[10px] font-sans font-semibold text-slate-500">Negara Dijelajahi</span>
             </div>
-            <div className="bg-[#f2e7d5] p-2 rounded-lg border border-[#d8c5aa]">
-              <span className="block text-xl font-black font-journal text-[#1e3a5f]">160+</span>
-              <span className="text-[9px] font-typewriter text-[#785b3e] font-semibold">Grup Tur Sukses</span>
+            <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <span className="block text-2xl font-black font-display text-orange-600">160+</span>
+              <span className="text-[10px] font-sans font-semibold text-slate-500">Tur Rombongan</span>
             </div>
-            <div className="bg-[#f2e7d5] p-2 rounded-lg border border-[#d8c5aa]">
-              <span className="block text-xl font-black font-journal text-[#065f46]">99.8%</span>
-              <span className="text-[9px] font-typewriter text-[#785b3e] font-semibold">Safety Record</span>
+            <div className="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+              <span className="block text-2xl font-black font-display text-emerald-600">99.8%</span>
+              <span className="text-[10px] font-sans font-semibold text-slate-500">Safety Record</span>
             </div>
           </div>
 
-          {/* Tour Leader Manifesto */}
-          <blockquote className="text-[12px] font-handwriting text-[#3d2714] text-center leading-relaxed bg-[#fbf3e4] p-2 rounded border-l-3 border-[#c59b27] italic">
-            “Bagi saya, tugas Tour Leader bukan cuma memastikan semua orang naik bus tepat waktu. Tugas saya adalah
-            menjaga rasa aman, menciptakan tawa tanpa cemas, dan mengubah destinasi asing jadi kenangan paling berharga
-            seumur hidup.”
+          {/* Tour Leader Statement */}
+          <blockquote className="text-xs font-sans text-slate-700 bg-orange-50/60 p-3 rounded-xl border-l-3 border-orange-500 leading-relaxed">
+            “Bagi saya, tugas Tour Leader modern bukan cuma memandu arah jalan, tapi menciptakan **rasa aman total**,
+            memastikan setiap momen terasa berkelas, dan mengubah destinasi impian jadi pengalaman seumur hidup.”
           </blockquote>
         </div>
       </div>

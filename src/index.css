@@ -12,74 +12,64 @@
     padding: 0;
     min-height: 100%;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    background-color: #12100e;
-    color: #2b2520;
+    background-color: #080c10;
+    color: #0f172a;
     overflow-x: hidden;
   }
 
-  /* Custom subtle scrollbar */
+  /* Custom subtle modern scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #1e1a16;
+    background: #0f172a;
   }
   ::-webkit-scrollbar-thumb {
-    background: #544432;
+    background: #334155;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #786248;
+    background: #475569;
   }
 }
 
-/* Custom Font Utilities */
-.font-journal {
-  font-family: 'Cinzel', serif;
+/* Custom Modern Font Utilities */
+.font-display {
+  font-family: 'Syne', sans-serif;
 }
 
-.font-handwriting {
-  font-family: 'Caveat', cursive;
+.font-heading {
+  font-family: 'Space Grotesk', sans-serif;
 }
 
-.font-typewriter {
-  font-family: 'Courier Prime', monospace;
+.font-sans {
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Wood Tabletop Background Pattern */
-.bg-wood-desk {
-  background-color: #1a1512;
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Modern Topographic Grid Background */
+.bg-modern-desk {
+  background-color: #090d14;
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(45, 34, 24, 0.6) 0%, rgba(15, 12, 10, 0.95) 100%),
-    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.08) 0px, rgba(0, 0, 0, 0.08) 2px, transparent 2px, transparent 8px),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 40px);
+    radial-gradient(circle at 50% 30%, rgba(30, 41, 59, 0.45) 0%, rgba(9, 13, 20, 0.98) 100%),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
 }
 
-/* Parchment / Aged Paper Texture */
-.bg-parchment {
-  background-color: #fbf7ee;
-  background-image: 
-    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.7) 0%, rgba(240, 230, 210, 0.6) 100%),
-    repeating-linear-gradient(45deg, rgba(160, 130, 90, 0.03) 0px, rgba(160, 130, 90, 0.03) 2px, transparent 2px, transparent 6px);
-}
-
-.bg-parchment-dark {
-  background-color: #f3edd9;
-  background-image: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.4) 0%, rgba(225, 210, 185, 0.8) 100%);
-}
-
-/* Vintage Leather Texture */
-.bg-leather {
-  background-color: #3b2214;
-  background-image: 
-    radial-gradient(circle at 30% 20%, rgba(85, 45, 25, 0.8) 0%, rgba(35, 18, 10, 0.95) 100%),
-    repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.15) 0px, rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 4px);
+/* Modern Crisp Matte Editorial Paper */
+.bg-modern-paper {
+  background-color: #fbfcfe;
+  background-image: radial-gradient(circle at 100% 0%, rgba(241, 245, 249, 0.6) 0%, rgba(255, 255, 255, 1) 100%);
 }
 
 /* 3D Transform Utilities for Pop-Up Book */
-.perspective-1500 {
-  perspective: 1500px;
+.perspective-1800 {
+  perspective: 1800px;
 }
 
 .preserve-3d {
@@ -90,21 +80,11 @@
   backface-visibility: hidden;
 }
 
-/* Book Spine Shadow */
-.book-spine-shadow {
-  box-shadow: inset 24px 0 30px -15px rgba(0, 0, 0, 0.25), inset -24px 0 30px -15px rgba(0, 0, 0, 0.25);
+/* Modern Clean Pop-Up Drop Shadows */
+.shadow-popup-layer {
+  filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.35)) drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
 }
 
-.page-left-shadow {
-  box-shadow: inset -25px 0 25px -15px rgba(70, 50, 30, 0.2);
-}
-
-.page-right-shadow {
-  box-shadow: inset 25px 0 25px -15px rgba(70, 50, 30, 0.2);
-}
-
-/* Realistic Stamp Inking Effect */
-.stamp-border {
-  border: 3px dashed #b91c1c;
-  mask-image: radial-gradient(circle at 50% 50%, black 90%, transparent 100%);
+.shadow-card-elevated {
+  box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.22), 0 0 0 1px rgba(226, 232, 240, 0.8);
 }
